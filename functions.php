@@ -26,7 +26,6 @@
             $round++;
         }
         while($round <= 6);
-<<<<<<< HEAD
         echo "<div id='main'>";     //  MAIN DIV
             displayHands($players);
         echo "</div>"; 
@@ -37,23 +36,14 @@
         $player = 1;
         do
         {
+            $sum = 0;
             displayPlayer($player);         //  FUNCTION TO DISPLAY CHARACTER IMAGES
-=======
-        displayHands($players);
-    }
-    function displayHands($game)
-    {
-        $player = 1;
-        do
-        {
->>>>>>> d668289e3292c5e8ff74cc140c06f9e08e51de12
             for($i = 1; $i <= 6; $i++)
             {
-                displayCard($game[$player][$i]);
+                $sum += displayCard($game[$player][$i]);
             }
-<<<<<<< HEAD
             echo "<br>";
-            displayNameScore($player);
+            displayNameScore($player, $sum);
             $player++;
         }
         while($player <= 4);
@@ -62,6 +52,11 @@
     }
     function displayCard($card){
         echo "<img src='../lab3/cards/$card.png'>"; 
+        list($suit, $value) = split('[/.-]', $card);
+        if($value >= 10) {
+            return 10;
+        }
+        return $value;
     }
     function displayPlayer($player){    // DISPLAYS CHARACTER IMAGE
         $character; 
@@ -81,7 +76,7 @@
         echo "<img src=' img/$character.png'>"; 
         echo "&emsp;&emsp;&emsp;"; 
     }
-    function displayNameScore($player){
+    function displayNameScore($player, $score){
         $character; 
         switch($player){
             case 1: $character = "BB8";
@@ -93,18 +88,8 @@
             case 4: $character = "Poe";
                     break; 
         }
-        echo "<h5>" . $character . ":</h5>"; 
+        echo "<h5>" . $character . ": ". $score . "</h5>";
+        // echo "<h5>" . $score . "</h5>";
         echo "<br />"; 
     }
-=======
-            $player++;
-            echo "<br>";
-        }
-        while($player <= 4);
-    }
-    function displayCard($card)
-    {
-        echo "<img src='../lab3/cards/$card.png'>"; 
-    }
->>>>>>> d668289e3292c5e8ff74cc140c06f9e08e51de12
 ?>
