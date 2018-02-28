@@ -26,6 +26,7 @@
             $round++;
         }
         while($round <= 6);
+<<<<<<< HEAD
         echo "<div id='main'>";     //  MAIN DIV
             displayHands($players);
         echo "</div>"; 
@@ -37,10 +38,20 @@
         do
         {
             displayPlayer($player);         //  FUNCTION TO DISPLAY CHARACTER IMAGES
+=======
+        displayHands($players);
+    }
+    function displayHands($game)
+    {
+        $player = 1;
+        do
+        {
+>>>>>>> d668289e3292c5e8ff74cc140c06f9e08e51de12
             for($i = 1; $i <= 6; $i++)
             {
                 displayCard($game[$player][$i]);
             }
+<<<<<<< HEAD
             echo "<br>";
             displayNameScore($player);
             $player++;
@@ -85,4 +96,15 @@
         echo "<h5>" . $character . ":</h5>"; 
         echo "<br />"; 
     }
+=======
+            $player++;
+            echo "<br>";
+        }
+        while($player <= 4);
+    }
+    function displayCard($card)
+    {
+        echo "<img src='../lab3/cards/$card.png'>"; 
+    }
+>>>>>>> d668289e3292c5e8ff74cc140c06f9e08e51de12
 ?>
