@@ -136,7 +136,7 @@ session_start();
         }
     }
     function displayCard($card){
-        echo "<img src='../lab3-master 4/cards/$card.png'>"; 
+        echo "<img src='../cards/$card.png'>"; 
         list($suit, $value) = split('[/.-]', $card);
         if($value >= 10) {
             return 10;
