@@ -1,7 +1,12 @@
 <?php
+session_start();
+  if(!isset($_SESSION['totalGames']))
+  {//checks if session exists 
+  $_SESSION['totalGames'] = 0;
+  }
     function play()
     {
-       
+        $_SESSION['totalGames']++;
         $deck = array(); // CREATES DECK
         for($i=0; $i<=3; $i++)
         {
@@ -12,6 +17,7 @@
         }
         shuffle($deck); // SHUFFLES DECK
         getHand($deck);
+        //displayElapsedTime();
     }
     function getHand($shuffledDeck)
     {
@@ -33,6 +39,7 @@
         echo "<h1>STAR WARS SILVERJACK</h1>";
         
             displayHands($players);
+            //displayElapsedTime();
         echo "</div>"; 
     }
     function displayHands($game)
@@ -45,7 +52,6 @@
         shuffle($orderArray); 
         $charOrder = array(); 
         $charIndex = 0; 
-        
         do
         {
             $sum = 0;
@@ -70,9 +76,6 @@
             echo "<img src=' img/$character.png'>"; 
             echo "&emsp;&emsp;&emsp;";
         //  /\ /\ /\ /\  COPIED THE CODE FROM displayPlayer FUNCTION HERE /\ /\ /\ /\
-            
-        
-            
             for($i = 1; $i <= 6; $i++)
             {
                 $sum += displayCard($game[$player][$i]);
@@ -85,9 +88,11 @@
             $player++;
         }
         while($player <= 4);
-        displayWinner($score, $charOrder); 
+        displayWinner($score, $charOrder);
+       //displayElapsedTime();
         echo "</div>";
     }
+    
     function displayWinner($score, $charOrder){
         
         $scoresCopy = $score;   //  MAKES A COPY OF THE score ARRAY
@@ -131,7 +136,7 @@
         }
     }
     function displayCard($card){
-        echo "<img src='../lab3/cards/$card.png'>"; 
+        echo "<img src='../lab3-master 4/cards/$card.png'>"; 
         list($suit, $value) = split('[/.-]', $card);
         if($value >= 10) {
             return 10;
@@ -169,4 +174,13 @@
         // echo "<h5>" . $score . "</h5>";
         echo "<br />"; 
     }
+    
+$start = microtime(true);
+function displayElapsedTime() {
+  global $start;
+    $elapsedSecs = microtime(true) - $start;
+    echo $elapsedSecs . "seconds ";
+    //$_SESSION['timeElapsed'] += $elpasedSecs;
+}
+
 ?>
