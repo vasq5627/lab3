@@ -1,6 +1,4 @@
- body {
-    background-image: url(../img/bg2.jpg);
-    cbody {
+body {
     background-image: url(../img/bg2.jpg);
     color:black;
     background-size: cover;
@@ -70,34 +68,4 @@ h5, h2, h1{
 #games{
         text-align:center;
         color:red;
-    }olor:black;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-   
-#main {
-    width: 1000px;
-    background-color: black;
-    opacity: 1;
-    color: white;
-    text-align: center;
-    height:1000;
-    margin: auto;
-    top: 100px;
-}
-#charactersAndCards{
-    opacity: 1;
-}
-h5, h2, h1{
-    font-family: 'Space Mono', monospace;   
-}
- #icon1{
-      top:10px;
-      left:10px;
-      position:absolute;
-    }
- #icon2{
-      top:10px;
-      right:10px;
-      position:absolute;
     }
